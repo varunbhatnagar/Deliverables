@@ -1,0 +1,47 @@
+//BANGALORE
+
+insert into Mapping values('Koramangala','HSR Layout','Madiwala','Kormangala 6th block','Wilson Garden','Shantinagar');
+insert into Mapping values('Vijay Nagar',''Rajajinagar','BEML','Gopalpuram','Chamrajpet','Mysore Road');
+insert into Mapping values('Airport Road','Indiranagar','Sarjapur Road','Ulsoor','Banaswadi','Austin town');
+insert into Mapping values('Jayanagar','J.P Nagar','Padmanam nagar','R.V Road','South End Circle','Jayanagar 7th Block');
+insert into Mapping values('Banashankari','Hanumanthnagar','Basavanagudi','Hoskerihalli','Rajajaeshwari nagar',Kengeri');
+insert into Mapping values('Yashvanthpur','Cox town','Richmond town','Peenya','Yelahanka','Tumkur Road');
+insert into Mapping values('Whitefield','Domlur','HAL Road','ITPL','Kadugodi','Marathalli');
+insert into Mapping values('malleshwaram','Devasandra','Vidyaranyapuram','Mekri circle','R.T nagar','Vayalikavali');
+
+//CHENNAI
+
+insert into Mapping values('adyar','KK nagar','Koturupuram','Mylapore','Saidapet','Tambaram');
+insert into Mapping values('annanagar','Ambattur','Kilpauk','Porur','Vadapalani','Ayanavaram');
+insert into Mapping values('nungambakkam','Egmore','George Town','Triplicane','Royapettah','Velachery');
+insert into Mapping values('rspuram','Pozhal','Purasavakkam','Tondiarpet','Dwarakanagar','Kanchipuram');
+insert into Mapping values('tnagar','Benson Town','Fraser town','Chickpet','Hennur','Laggeri');
+
+//DELHI
+
+insert into Mapping values('Vasant Vihar','Chanakyapuri','Greater Kailash','Lajpat Nagar','Mehrauli','Nehru Place');
+insert into Mapping values('GK-1 ','Safdarjung','South Extension','Vasant Kunj','Mayur Vihar','Patparganj');
+insert into Mapping values('Green Park','Preet Vihar','Shahdara','Chandni Chowk','Pragati Maidan','Dwarka');
+insert into Mapping values('Karol Bagh','Janakpuri','Purasavakkam','Tondiarpet','Dwarakanagar','Kanchipuram');
+insert into Mapping values('CP Janpath','Punjabi Bagh','Rohini','Faridabad','Bahadurgarh','Ghaziabad');
+
+
+
+//KOLKATA
+
+insert into Mapping values('City Centre Mall 2',KK nagar,'Dakshineswar','Dum Dum','Lake Town','Maniktala');
+insert into Mapping values('Kolkata Comac Street','Nager Bazar','Shobha Bazar','Shyam Bazar','Tala','Alipur');
+insert into Mapping values('Kolkata Salt Lake','Baguiati','Jadavpur','Jodhpur Park','Kalighat','Kasba');
+insert into Mapping values('Kolkata Forum','Sealdah','BBD Bagh','Entali','Esplanade','Khidirpur');
+
+
+//MUMBAI
+
+insert into Mapping values('Cinewonder Thane','Kalamboli','Mysore Colony ','Shastri Nagar','Dev Nagar','Nerul');
+insert into Mapping values('Powaii','Tardeo','Worli','Chembur','Ghatkopar','Kurla');
+insert into Mapping values('Lokhandwala','Dadar','Fort Area','Kalbadevi','Nariman Point','Anushakti Nagar');
+insert into Mapping values('Borivali','Kalyan','Navi Mumbai','Raigarh','Thane','Parel');
+insert into Mapping values('Andheri East','Bandra','Dahisar','Goregaon','Juhu','Malad');
+
+
+

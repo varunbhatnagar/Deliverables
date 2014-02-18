@@ -1,0 +1,268 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="spinmenu.js"></script>
+	<style type="text/css">
+	<!--
+		.style1 {
+	font-family: "Comic Sans MS";
+	font-weight: bold;
+}
+	-->
+	</style>
+</head>
+<body background="images/bg_main01.jpg">
+<form  action="" method="post" name="Registationform1" onsubmit="return validate()"> 
+<script type="text/javascript">
+	rahul.isVertical =0;            //  if it's vertical or horizontal [0|1]
+	rahul.x = 500;                  // x offset from point of insertion on page
+	rahul.y = 200; 					// y offset from point of insertion on page
+	rahul.w = 150; 					// item's width
+	rahul.h = 30; 					// height
+	rahul.r = 150; 					// menu's radius
+	rahul.v = 20; 					// velocity
+	rahul.s = 8; 					// scale in space (for 3D effect)
+	rahul.color = '#FFFFFF'; 		// normal text color
+	rahul.colorover = '#ffffff'; 	// mouseover text color
+	rahul.backgroundcolor = '#DC143C'; 		// normal background color
+	rahul.backgroundcolorover = '#EE6363'; 	// mouseover background color
+	rahul.bordercolor = '#000000'; 			// border color
+	rahul.fontsize = 15; 					// font size
+	rahul.fontfamily = 'Arial'; 			//	font family
+	if (document.getElementById){
+		document.write('<div id="orderanchor" style="height:'+eval(rahul.h+20)+'"></div>')
+		rahul.anchor=document.getElementById('orderanchor')
+		rahul.ordermenu();
+		rahul.x+=getposOffset(rahul.anchor, "left") //relatively position it
+		rahul.y+=getposOffset(rahul.anchor, "top")  //relatively position it
+		//menuitem:   rahul.ordermenuitem(text, link, target)
+		rahul.ordermenuitem("HOME","index.html");
+		rahul.ordermenuitem("MENU","");
+		rahul.ordermenuitem("REGISTER","Register.html");
+		rahul.ordermenuitem("ABOUT US","");
+		rahul.ordermenuitem("LOGIN","Login.html");
+		rahul.ordermenuitem("LOCATION","location.html");
+		rahul.ordermenuclose();
+	}
+</script>
+<script type="text/javascript">
+function validate() {							// function to validate the valid fields in the registration form
+	var userid=document.Registationform1.userid.value;
+	var pwd=document.Registationform1.password.value;
+	var conpwd=document.Registationform1.confirmPassword.value;
+	var typeOfUser=document.Registationform1.usertype.value;
+	var name=document.Registationform1.name.value;
+	var phNo=document.Registationform1.phoneno.value;
+	var addLine1=document.Registationform1.addressline1.value;
+	var addLine2=document.Registationform1.addressline2.value;
+	var city=document.Registationform1.city.value;
+	var pinCode=document.Registationform1.pincode.value;
+	var state=document.Registationform1.states.value;
+	var warningString="";
+	var check=false;
+	if(userid=="") {				// Checks for empty user id field
+		check=true;
+		warningString=warningString.concat("Enter user Id"+'\n');
+	}
+	if(pwd=="") {					// Checks for empty password field 
+		check=true;
+		warningString=warningString.concat("Enter password"+'\n');
+	}
+	if(conpwd=="") {				// Checks for empty confirm password field
+		check=true;
+		warningString=warningString.concat("Enter confirm password"+'\n');
+	}
+	if(name=="") {					// Checks for empty name field
+		check=true;
+		warningString=warningString.concat("Enter name"+'\n');
+	}
+	if(phNo=="") {					// Checks for empty phone number field	
+		check=true;
+		warningString=warningString.concat("Enter phone number"+'\n');
+	}
+	if(addLine1=="") {				// Checks for empty address line 1 field
+		check=true;
+		warningString=warningString.concat("Enter address line 1"+'\n');
+	}
+	if(addLine2=="") {				// Checks for empty address line 2 field
+		check=true;
+		warningString=warningString.concat("Enter address line 2"+'\n');
+	}
+	if(pinCode=="") {				// Checks for empty pin code field
+		check=true;
+		warningString=warningString.concat("Enter pincode"+'\n');
+	}
+	if(state=="Invalid") {			// Checks if state is selected or not
+		check=true;
+		warningString=warningString.concat("select state"+'\n');
+	}
+	if(city=="Invalid") {			// Checks for city is selected or not
+		check=true;
+		warningString=warningString.concat("select city"+'\n');
+	}
+	if(check) {						//call alert with relevant messages
+		alert(warningString);
+		return false;
+	}
+	check=false;
+	warningString="";
+	if(( userid.length<7)||(userid.length>25)){ 	//userid has to be b/n 7-25 charcters
+		check=true;
+		warningString=warningString.concat("User id should be between 6-25 characters"+'\n');
+		document.Registationform1.userid.value="";		
+	} 
+	if(userid.indexOf(" ")!=-1) {					// checks that space should not be present in the user name
+		check=true;
+		warningString=warningString.concat("No spaces are allowed in userId "+'\n');
+		document.Registationform1.userid.value="";	
+	}
+	if((userid.indexOf(",")!=-1)||(userid.indexOf("@")!=-1)){ // checks that ',' and '@' should not be present in the user name
+		check=true;
+		warningString=warningString.concat("No ',' or '@' allowed in user id"+'\n');
+		document.Registationform1.userid.value="";	
+	}
+	if(isFinite(userid)) {                              // checks that user id should not be number
+		check=true;
+		warningString=warningString.concat("Numbers not allowed in user id"+'\n');
+		document.Registationform1.userid.value=""; 
+	}
+	if(check) {						//call alert with relevant messages
+		alert(warningString);
+		return false;
+	}
+	if(pwd.length<7||pwd.length>25) {                              // password has to be b/n 7-25 charcters
+		check=true;
+		warningString=warningString.concat("Password should be between 7-25 characters"+'\n');
+		document.Registationform1.login_id.value="";
+		document.Registationform1.password.value=""; 
+	}
+	if(pwd!=conpwd) {               //checks that password and confirm password should match
+		document.Registationform1.password.value="";
+		document.Registationform1.confirmPassword.value="";		
+		alert("password doesnt matches with re-entered password");
+		return false;
+	}
+	if((!isFinite(phNo))||phNo.length<6) {           // checks that the phone no should be a number more than six digits
+		alert("Invalid phone number");
+		document.Registationform1.phNo.value="";
+		return false;
+	}	
+	if((!isFinite(pinCode))||pinCode.length!=6) {   //checks that the pin code has to be a 6 digit number
+		alert("PIN code should be a 6 digit number");
+		document.Registationform1.pinCode.value="";
+		return false;					
+	}
+	else {
+		alert("Registration successfull!!!Press ok to enter the site");
+		document.Registationform1.action="Register.jsp";
+	}
+}
+</script>
+<table width="853" height="1126" border="1" align="center" >
+   <tr>
+    	<td width="843" height="163"><img src="images/welcome.jpg" width="843" height="159" /></td>
+  </tr>
+  <tr>
+  		<td height="82"  ></td>
+  </tr>
+  <tr>
+  <tr>
+  </tr>
+  <tr>
+    <td height="869" >
+		<table width="842" height="856" border="1" background="images/Pizza.jpg">
+      		<tr >
+        		<td width="176" height="850">&nbsp;</td>
+        		<td width="493"  bgcolor="#FFCC66">
+					<table align="center"  cellpadding=0 cellspacing=20 border=0 width="85%">
+						<tr>
+							<td></td>
+							<td><pre class="style1">REGISTER YOURSELF AND ORDER WITH US</pre></td>
+							<td>&nbsp;</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>User ID     		:</td>
+							<td><input type="text" name="userid" size="30" maxlength="20" ></td>
+							<td>&nbsp;</td>
+							<td></td>
+							<td></td>
+						</tr>
+						<tr>
+							<td>Password :</td>
+							<td><input type="password" name="password" size="30" maxlength="20"></td>
+						</tr>
+						<tr>
+							<td>Confirm Password :</td>
+							<td><input type="password" name="confirmPassword" size="30" maxlength="20"></td>
+						</tr>
+						<tr>
+							<td>Type of User :</td>
+							<td><input type="radio" name="usertype" size="50" value="Regular user" checked>Regular
+							    <input type="radio" name="usertype" size="30" value="Corporate">Corporate
+							</td>
+						</tr>
+						<tr>
+							<td>Name :</td>
+							<td><input type="text" name="name" size="30" maxlength="20"></td>
+						</tr>
+						<tr>
+							<td>Ph/Mobile No :</td>
+							<td><input type="text" name="phoneno" size="30" maxlength="10"></td>
+						</tr>
+						<tr>
+							<td>Address line 1 :</td>
+							<td><input type="text" name="addressline1" size="30"></td>
+						</tr>
+						<tr>
+							<td>Address line 2 :</td>
+							<td><input type="text" name="addressline2" title="Enter your locality(starting letter in caps)" size="30"></td>
+						</tr>
+						<tr>
+							<td>City :</td>
+							<td><div align="left">
+								<select name="city" >
+									<option value="Invalid">-select city-</option>
+									<option value="Bangalore">Bangalore </option>
+									<option value="Mumbai" >Mumbai</option>
+									<option value="Kolkata">Kolkata</option>
+									<option value="Delhi">Delhi</option>
+									<option value="Chennai">Chennai</option>
+								</select> </div>
+							</td>
+						</tr>
+						<tr>
+							<td>PIN Code :</td>
+							<td><input type="text" name="pincode" size="30" maxlength="6"></td>
+						</tr>
+						<tr>
+							<td>State :</td>
+							<td><div align="left">
+								<select name="states" >
+									<option value="Invalid">-select state-</option>
+									<option value="Karnataka">Karnataka </option>
+									<option value="Maharastra">Maharastra</option>
+									<option value="West Bengal">West Bengal</option>
+									<option value="Delhi">Delhi</option>
+									<option value="Tamilnadu">Tamilnadu</option>
+								</select> </div>
+							</td>
+						</tr>
+				  </table>
+		<table align="center" cellpadding=0 cellspacing=25 border=0 width="30%" >
+			<tr>
+				<td><input type="submit" name="Submit" value="SUBMIT" size="20" ></td>
+				<td><input type="reset" name="reset" value="RESET"></td>
+				<td><input type="button" name="Back" value="BACK"></td>
+				<td></td>
+			</tr>
+		</table>
+	</td>
+  	<td width="151" height="850" bgcolor="">&nbsp;</td>
+ </tr>
+</table></td>
+</tr>
+</table>
+</body>
+</html>

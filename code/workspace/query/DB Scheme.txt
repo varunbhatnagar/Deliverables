@@ -1,0 +1,190 @@
+CREATE DATABASE db_pizza_order_sys;
+
+CREATE SEQUENCE seq_customer_id
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
+CREATE SEQUENCE seq_trans_id
+START WITH 1
+INCREMENT BY 1
+CACHE 50;
+
+CREATE SEQUENCE seq_location_id
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
+CREATE SEQUENCE seq_trans_id
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
+CREATE SEQUENCE seq_emp_id
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
+
+
+CREATE TABLE Customer(
+customer_id 	NUMBER(10)	NOT NULL, 
+customer_name	VARCHAR(25)	NOT NULL,
+customer_type	VARCHAR(20)	NOT NULL,
+address_line1	VARCHAR(25)	NOT NULL,
+address_line2	VARCHAR(25)	DEFAULT 'Not Mentioned'		NOT NULL,
+mobile_no	VARCHAR(10)	NOT NULL,
+city 		VARCHAR(25)	NOT NULL,
+state		VARCHAR(25)	NOT NULL,
+pincode		VARCHAR(6)	NOT NULL,
+CONSTRAINT pk_customer_id PRIMARY KEY (customer_id),
+CONSTRAINT chk_customer_name CHECK (length(customer_name)<=25),
+CONSTRAINT chk_address_line1 CHECK (length(address_line1)<=25),
+CONSTRAINT chk_address_line2 CHECK (length(address_line2)<=25),
+CONSTRAINT chk_mobile_no CHECK (length(mobile_no)=10),
+CONSTRAINT chk_city CHECK (length(city)<=25),
+CONSTRAINT chk_state CHECK (length(state)<=25),
+CONSTRAINT chk_pincode CHECK (length(pincode)=6)
+);
+
+
+CREATE TABLE Customer_login(
+login_id	VARCHAR(25)	NOT NULL,
+password	VARCHAR(25)	NOT NULL,
+no_of_trans	NUMBER(5)	NOT NULL,
+customer_id	NUMBER(10)	NOT NULL,
+CONSTRAINT pk_customer_login_id PRIMARY KEY (login_id),
+CONSTRAINT fk_customer_id FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
+CONSTRAINT chk_login_id CHECK (length(login_id)>6 AND length(login_id)<=25),
+CONSTRAINT chk_customer_password CHECK (length(password)>6 AND length(password)<=25)
+);
+
+
+
+CREATE TABLE Pizza_order(
+trans_id	NUMBER(10)	NOT NULL,
+customer_id	NUMBER(10)	NOT NULL,
+pizza_ordered	VARCHAR(1000)	NOT NULL,
+location_id	NUMBER(5)	NOT NULL,
+total_quantity	NUMBER(5)	NOT NULL,
+total_amount	NUMBER(5)	NOT NULL,
+time		DATE  	NOT NULL,
+paymode		VARCHAR(10)	NOT NULL,
+CONSTRAINT pk_trans_id PRIMARY KEY (trans_id),
+CONSTRAINT fk_po_customer_id FOREIGN KEY (customer_id) REFERENCES Customer(customer_id),
+CONSTRAINT fk_location_id FOREIGN KEY (location_id) REFERENCES Location(location_id)
+);
+
+--Assuming that the string generated for attribute will not exceed 1000 characters. Otherwise we will have to make changes 
+--in the database.
+
+CREATE TABLE Pizza_item(
+pizza_code Number(5) NOT NULL,
+pizza_name VARCHAR(30) NOT NULL,
+pizza_type VARCHAR(30) NOT NULL,
+pizza_size VARCHAR(30) NOT NULL,
+pizza_toppings VARCHAR(30) NOT NULL,
+pizza_rate NUMBER(5) NOT NULL,
+img_path Varchar(50) NOT NULL,
+CONSTRAINT pk_pizza_code PRIMARY KEY (pizza_code),
+CONSTRAINT chk_pizza_code CHECK (length(pizza_code)<=5),
+CONSTRAINT chk_pizza_name CHECK (length(pizza_name)<=25),
+CONSTRAINT chk_pizza_type CHECK (length(pizza_type)<=25),
+CONSTRAINT chk_pizza_size CHECK (length(pizza_size)<=25),
+CONSTRAINT chk_pizza_toppings CHECK (length(pizza_toppings)<=25),
+CONSTRAINT chk_pizza_rate CHECK (pizza_rate>=0 AND pizza_rate<=99999)
+);
+
+
+
+CREATE TABLE Location(
+location_id NUMBER(5) NOT NULL,
+outlet_name VARCHAR(25)	NOT NULL,
+outlet_address_line1 VARCHAR(25) NOT NULL,
+outlet_address_line2 VARCHAR(25) NOT NULL,
+city VARCHAR(25) NOT NULL,
+state VARCHAR(25) NOT NULL,
+pincode	VARCHAR(6) NOT NULL,
+loc_contact_no VARCHAR(40) NOT NULL,
+CONSTRAINT pk_location_id PRIMARY KEY (location_id),
+CONSTRAINT chk_location_id CHECK (location_id>0 AND location_id<=99999),
+CONSTRAINT chk_loc_outlet_name CHECK (length(outlet_name)<=25),
+CONSTRAINT chk_outlet_address_line1 CHECK (length(outlet_address_line1)<=25),
+CONSTRAINT chk_outlet_address_line2 CHECK (length(outlet_address_line2)<=25),
+CONSTRAINT chk_loc_state CHECK (length(state)<=25),
+CONSTRAINT chk_loc_city CHECK (length(city)<=25),
+CONSTRAINT chk_loc_pincode_length CHECK (length(pincode)=6)
+);
+
+
+CREATE TABLE Card_details(
+card_no VARCHAR(25) NOT NULL,
+card_holder_name VARCHAR(25) NOT NULL,
+card_type VARCHAR(25) NOT NULL,
+bank_name VARCHAR(25) NOT NULL,
+expiry_date DATE NOT NULL,
+CONSTRAINT pk_card_no PRIMARY KEY (card_no),
+CONSTRAINT chk_card_no CHECK (length(card_no)<=25),
+CONSTRAINT chk_card_holder_name CHECK (length(card_holder_name)<=25),
+CONSTRAINT chk_bank_name CHECK (length(bank_name)<=25)
+);
+
+
+CREATE TABLE Sales(
+
+location_id	NUMBER(5)	NOT NULL,
+sale_pizza01	NUMBER(10)	NOT NULL,
+sale_pizza02	NUMBER(10)	NOT NULL,
+sale_pizza03	NUMBER(10)	NOT NULL,
+sale_pizza04	NUMBER(10)	NOT NULL,
+sale_pizza05	NUMBER(10)	NOT NULL,
+sale_pizza06	NUMBER(10)	NOT NULL,
+sale_pizza07	NUMBER(10)	NOT NULL,
+sale_pizza08	NUMBER(10)	NOT NULL,
+sale_pizza09	NUMBER(10)	NOT NULL,
+sale_pizza10	NUMBER(10)	NOT NULL,
+sale_pizza11	NUMBER(10)	NOT NULL,
+sale_pizza12	NUMBER(10)	NOT NULL,
+sale_pizza13	NUMBER(10)	NOT NULL,
+sale_pizza14	NUMBER(10)	NOT NULL,
+sale_pizza15	NUMBER(10)	NOT NULL,
+
+CONSTRAINT pk_location_id PRIMARY KEY (location_id),
+);
+
+
+CREATE TABLE Trans_status(
+trans_id NUMBER(10) NOT NULL,
+trans_status NUMBER(1) NOT NULL,
+CONSTRAINT pk_trans_status_id PRIMARY KEY (trans_id)
+);
+
+
+CREATE TABLE Employee_login(
+emp_id		NUMBER(10)	NOT NULL,
+login_id	VARCHAR(25)	NOT NULL,
+password	VARCHAR(25)	NOT NULL,
+CONSTRAINT pk_emp_id PRIMARY KEY (emp_id),
+CONSTRAINT chk_emp_login_id CHECK (length(login_id)>6 AND length(login_id)<=25),
+CONSTRAINT chk_emp_password CHECK (length(password)>6 AND length(password)<=25)
+);
+
+INSERT INTO Customer VALUES( seq_customer_id.nextval, 'amit', 'Regular User', 
+'6, Shiv Sagar Awas', 'Model Town', '9891847009', 'bareilly', 'up', '243005');
+
+
+INSERT INTO Customer VALUES( seq_customer_id.nextval, 'rahul', 'Corporate User', 
+'241, Vaishali Nagar', 'Queens Road', '8088808046', 'jaipur', 'rajasthan', '302021');
+
+insert into Customer_login values ('sx.amit', 'amit0123', 4, 11); 
+
+insert into Customer_login values ('rahul.audi', 'rahul0123', 30, 12); 
+
+SELECT * FROM Customer_login WHERE LOGIN_ID='rahul.audi';
+SELECT * FROM Customer_login WHERE LOGIN_ID='sx.amit';
+
+insert into Customer values(seq_customer_id.nextval,?,?,?,?,?,?,?,?)
+
+insert into Location values(seq_Location_id.nextval,'kormangala','45-1stblock','6th main','Bangalore','Karnataka','560033','9066610210');
+
+INSERT INTO  Pizza_order VALUES(seq_trans_id.nextval,36,'rahul',1,12,250.1f,SYSDATE,'cash');

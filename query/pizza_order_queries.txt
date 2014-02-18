@@ -1,0 +1,20 @@
+// To get the address_line2
+select address_line2 from customer where customer_id = 1;
+select address_line2 from customer where customer_id = ?;
+select outlet_name from Location where outlet_address_line2='sector39';
+select outlet_name from Location where outlet_address_line2='?;
+select outlet_name from Mapping where outlet_name='forum mall';
+select outlet_name from Mapping where outlet_name=?;
+
+
+insert into Pizza_order values(seq_trans_id.nextval,?,?,?,?,?,SYSDATE,?);
+
+update Sales set sale_pizza01=sale_pizza01+?, sale_pizza02=sale_pizza02+?, sale_pizza03=sale_pizza03+?, sale_pizza04=sale_pizza04+?, sale_pizza05=sale_pizza05+?, sale_pizza06=sale_pizza06+?, sale_pizza07=sale_pizza07+?,
+sale_pizza08=sale_pizza08+?, sale_pizza09=sale_pizza09+?, sale_pizza10=sale_pizza10+?, sale_pizza11=sale_pizza11+?,
+sale_pizza12=sale_pizza12+?, sale_pizza13=sale_pizza13+?, sale_pizza14=sale_pizza14+?, sale_pizza15=sale_pizza15+?
+where outlet_name=?; 
+
+
+update Customer_Login set NO_OF_TRANS=NO_OF_TRANS+1 where customer_id=?;
+
+insert into Trans_Status (trans_id,outlet_name) values(?,?);

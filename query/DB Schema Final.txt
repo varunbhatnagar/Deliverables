@@ -1,0 +1,264 @@
+CREATE DATABASE db_pizza_order_sys;
+
+CREATE SEQUENCE seq_customer_id
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
+CREATE SEQUENCE seq_trans_id
+START WITH 1
+INCREMENT BY 1
+CACHE 50;
+
+CREATE SEQUENCE seq_location_id
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
+CREATE SEQUENCE seq_sales_location_id
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+;
+
+CREATE SEQUENCE seq_trans_id
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
+CREATE SEQUENCE seq_emp_id
+START WITH 1
+INCREMENT BY 1
+CACHE 10;
+
+
+CREATE TABLE Customer(
+customer_id NUMBER(10) NOT NULL,
+customer_name VARCHAR(25) NOT NULL,
+customer_type VARCHAR(20) NOT NULL,
+address_line1 VARCHAR(25) NOT NULL,
+address_line2 VARCHAR(25) NOT NULL,
+mobile_no VARCHAR(10) NOT NULL,
+city VARCHAR(25) NOT NULL,
+state VARCHAR(25) NOT NULL,
+pincode	VARCHAR(6) NOT NULL,
+CONSTRAINT pk_customer_id PRIMARY KEY (customer_id),
+CONSTRAINT unq_mobile_no UNIQUE (mobile_no),
+CONSTRAINT chk_customer_name CHECK (length(customer_name)<=25),
+CONSTRAINT chk_address_line1 CHECK (length(address_line1)<=25),
+CONSTRAINT chk_address_line2 CHECK (length(address_line2)<=25),
+CONSTRAINT chk_mobile_no CHECK (length(mobile_no)=10),
+CONSTRAINT chk_city CHECK (length(city)<=25),
+CONSTRAINT chk_state CHECK (length(state)<=25),
+CONSTRAINT chk_pincode CHECK (length(pincode)=6)
+);
+
+--drop table Customer;
+--INSERT INTO Customer VALUES(seq_customer_id.nextval, 'abhinav', 'regular', 'c-45', 'sector39', '9819847009', 'noida', 'up', '110017');
+--INSERT INTO Customer VALUES(seq_customer_id.nextval, 'amit', 'corporate', '35/18', 'ns palya', '8105834502', 'delhi', 'new delhi', '110017');
+--DELETE FROM Customer WHERE customer_id=(SELECT customer_id FROM Customer_login WHERE login_id='sx.amit');
+--DELETE FROM Customer WHERE customer_id=1;
+
+
+CREATE TABLE Customer_login(
+login_id VARCHAR(25) NOT NULL,
+password VARCHAR(25) NOT NULL,
+no_of_trans NUMBER(5) NOT NULL,
+customer_id NUMBER(10) NOT NULL,
+CONSTRAINT pk_customer_login_id PRIMARY KEY (login_id),
+CONSTRAINT fk_customer_id FOREIGN KEY (customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE ,
+CONSTRAINT chk_login_id CHECK (length(login_id)>6 AND length(login_id)<=25),
+CONSTRAINT chk_customer_password CHECK (length(password)>6 AND length(password)<=25)
+);
+
+--drop table Customer_login;
+--INSERT INTO Customer_login VALUES('sx.abhinav', 'abhinav0123', 20, 1);
+--INSERT INTO Customer_login VALUES('sx.amit', 'amit0123', 30, 2);
+
+
+CREATE TABLE Pizza_order(
+trans_id NUMBER(10) NOT NULL,
+customer_id NUMBER(10) NOT NULL,
+pizza_ordered VARCHAR(1000) NOT NULL,
+outlet_name VARCHAR(30),  
+total_quantity NUMBER(5) NOT NULL,
+total_amount NUMBER(10) NOT NULL,
+time DATE NOT NULL,
+paymode NUMBER(1) NOT NULL,
+CONSTRAINT pk_order_trans_id PRIMARY KEY (trans_id),
+CONSTRAINT fk_order_customer_id FOREIGN KEY (customer_id) REFERENCES Customer(customer_id) ON DELETE CASCADE,
+CONSTRAINT fk_order_outlet_name FOREIGN KEY (outlet_name) REFERENCES Location(outlet_name) ON DELETE SET NULL,
+CONSTRAINT chk_total_amout CHECK (total_amount>0 AND total_amount<=9999999999)
+);
+
+
+---Assuming that the string generated for attribute will not exceed 1000 characters. Otherwise we will have to make changes 
+--in the database.
+
+--INSERT INTO Pizza_order VALUES(seq_trans_id.nextval,1,'abc', 1,10,2,SYSDATE,0);
+--INSERT INTO Pizza_order VALUES(seq_trans_id.nextval,2,'def', 2,20,3,SYSDATE,1);
+--INSERT INTO Pizza_order VALUES(seq_trans_id.nextval,1,'def', 5,30,3,SYSDATE,1);
+--INSERT INTO Pizza_order VALUES(seq_trans_id.nextval,2,'def', 2,40,3,SYSDATE,1);
+
+
+--SELECT Pizza_order.customer_id, Pizza_order.location_id, sum(Pizza_order.total_quantity) FROM Pizza_order, Customer GROUP BY Pizza_order.customer_id, Pizza_order.location_id;
+
+
+--select Pizza_order.customer_id, sum(Pizza_order.total_quantity), Customer.customer_name from Pizza_order, Customer WHERE Pizza_order.customer_id=Customer.customer_id GROUP BY Pizza_order.customer_id;
+
+--SELECT Pizza_order.customer_id, sum(Pizza_order.total_quantity) AS SUM, Customer.customer_name 
+from Pizza_order, Customer WHERE Pizza_order.customer_id=Customer.customer_id
+
+(select Pizza_order.customer_id, sum(Pizza_order.total_quantity) from Pizza_order GROUP BY Pizza_order.customer_id)
+
+SELECT Customer.customer_name, TOT.CS, TOT.SUM from Customer INNER JOIN (select Pizza_order.customer_id AS CS, sum(Pizza_order.total_quantity) AS SUM from Pizza_order GROUP BY Pizza_order.customer_id) AS TOT ON 
+Customer.customer_id= TOT.customer_id;
+
+SELECT P
+
+
+CREATE TABLE Pizza_item(
+pizza_code NUMBER(5) NOT NULL,
+pizza_name VARCHAR(30) NOT NULL,
+pizza_type VARCHAR(30) NOT NULL,
+pizza_size VARCHAR(30) NOT NULL,
+pizza_toppings VARCHAR(30) NOT NULL,
+pizza_rate NUMBER(5) NOT NULL,
+img_path VARCHAR(50) NOT NULL,
+CONSTRAINT pk_pizza_code PRIMARY KEY (pizza_code),
+CONSTRAINT chk_pizza_name CHECK (length(pizza_name)<=30),
+CONSTRAINT chk_pizza_type CHECK (length(pizza_type)<=30),
+CONSTRAINT chk_pizza_size CHECK (length(pizza_size)<=30),
+CONSTRAINT chk_pizza_toppings CHECK (length(pizza_toppings)<=30),
+CONSTRAINT chk_pizza_rate CHECK (pizza_rate>=0 AND pizza_rate<=99999),
+CONSTRAINT chk_img_path CHECK (length(img_path)<=50)
+);
+
+--INSERT INTO Pizza_item VALUES (seq_pizza_code.nextval,'onion capsicum','veg','large','cheese',200,'onion capsicum.img');
+--INSERT INTO Pizza_item VALUES (seq_pizza_code.nextval,'crying chicken','non veg','medium','cheese',200,'crying chicken.img');
+--Third row inserted through GUI
+--INSERT INTO Pizza_item VALUES (seq_pizza_code.nextval,'crying chicken','non veg','small','cheese',200,'crying chicken.img');
+
+
+
+CREATE TABLE Location(
+location_id NUMBER(5) NOT NULL,
+outlet_name VARCHAR(30)	NOT NULL,
+outlet_address_line1 VARCHAR(25) NOT NULL,
+outlet_address_line2 VARCHAR(25) NOT NULL,
+city VARCHAR(25) NOT NULL,
+state VARCHAR(25) NOT NULL,
+pincode	VARCHAR(6) NOT NULL,
+loc_contact_no VARCHAR(50) NOT NULL,
+CONSTRAINT pk_location_id PRIMARY KEY (location_id),
+CONSTRAINT unq_outlet_name UNIQUE (outlet_name),
+CONSTRAINT chk_location_id CHECK (location_id>0 AND location_id<=99999),
+CONSTRAINT chk_loc_outlet_name CHECK (length(outlet_name)<=30),
+CONSTRAINT chk_outlet_address_line1 CHECK (length(outlet_address_line1)<=25),
+CONSTRAINT chk_outlet_address_line2 CHECK (length(outlet_address_line2)<=25),
+CONSTRAINT chk_loc_state CHECK (length(state)<=25),
+CONSTRAINT chk_loc_city CHECK (length(city)<=25),
+CONSTRAINT chk_loc_pincode_length CHECK (length(pincode)=6),
+CONSTRAINT chk_loc_contact_no CHECK (length(city)<=50)
+);
+
+--UPDATE Location SET outlet_name=?, outlet_address_line1=?, outlet_address_line2=?, city=?, state=?, pincode=?, loc_contact_no=?" 
+--INSERT INTO Location VALUES (seq_location_id.nextval,'koramangla','17th main','6th block','bangalore','karnataka','111111','1234567890' );
+--INSERT INTO Location VALUES (seq_location_id.nextval,'hsr','11th main','3rd block','bangalore','karnataka','222222','9876543210' );
+--INSERT INTO Location VALUES (seq_location_id.nextval,'btm','18th main','7h block','bangalore','karnataka','333333','9876543210' );
+
+
+
+
+CREATE TABLE Card_details(
+card_no VARCHAR(25) NOT NULL,
+card_holder_name VARCHAR(25) NOT NULL,
+card_type VARCHAR(25) NOT NULL,
+card_cvv VARCHAR(5) NOT NULL,
+bank_name VARCHAR(25) NOT NULL,
+expiry_date DATE NOT NULL,
+CONSTRAINT pk_card_no PRIMARY KEY (card_no),
+CONSTRAINT chk_card_no CHECK (length(card_no)=16),
+CONSTRAINT chk_card_cvv CHECK (length(card_cvv)=3),
+CONSTRAINT chk_card_holder_name CHECK (length(card_holder_name)<=25),
+CONSTRAINT chk_bank_name CHECK (length(bank_name)<=25)
+);
+
+
+CREATE TABLE Sales(
+outlet_name VARCHAR(30) NOT NULL,
+sale_pizza01 NUMBER(10)	NOT NULL,
+sale_pizza02 NUMBER(10) NOT NULL,
+sale_pizza03 NUMBER(10)	NOT NULL,
+sale_pizza04 NUMBER(10)	NOT NULL,
+sale_pizza05 NUMBER(10)	NOT NULL,
+sale_pizza06 NUMBER(10)	NOT NULL,
+sale_pizza07 NUMBER(10)	NOT NULL,
+sale_pizza08 NUMBER(10)	NOT NULL,
+sale_pizza09 NUMBER(10)	NOT NULL,
+sale_pizza10 NUMBER(10)	NOT NULL,
+sale_pizza11 NUMBER(10)	NOT NULL,
+sale_pizza12 NUMBER(10)	NOT NULL,
+sale_pizza13 NUMBER(10)	NOT NULL,
+sale_pizza14 NUMBER(10)	NOT NULL,
+sale_pizza15 NUMBER(10)	NOT NULL,
+CONSTRAINT pk_sales_outlet_name PRIMARY KEY (outlet_name)
+);
+
+
+--INSERT INTO Sales VALUES ('koramangla',10,20,30,40,50,60,70,80,90,100,110,120,130,140,150);
+--INSERT INTO Sales VALUES ('btm',100,200,300,400,500,600,700,800,900,1000,1100,1200,1300,1400,1500);
+--INSERT INTO Sales VALUES ('hsr',1,2,3,4,5,6,7,8,9,10,11,12,13,14,15);
+--INSERT INTO Sales VALUES ('hmt',11,12,13,14,15,16,17,18,19,20,21,22,23,24,25);
+
+
+CREATE TABLE Trans_status(
+trans_id NUMBER(10) NOT NULL,
+outlet_name VARCHAR(30) NOT NULL,
+trans_status VARCHAR(20) DEFAULT 'PENDING' NOT NULL,
+CONSTRAINT fk_ts_trans_id FOREIGN KEY (trans_id) REFERENCES Pizza_order(trans_id),
+CONSTRAINT fk_ts_outlet_name FOREIGN KEY (outlet_name) REFERENCES Location(outlet_name) ON DELETE CASCADE
+);
+
+
+CREATE TABLE Employee_login(
+emp_id NUMBER(10) NOT NULL,
+login_id VARCHAR(25) NOT NULL,
+password VARCHAR(25) NOT NULL,
+CONSTRAINT pk_emp_id PRIMARY KEY (emp_id),
+CONSTRAINT chk_emp_login_id CHECK (length(login_id)>6 AND length(login_id)<=25),
+CONSTRAINT chk_emp_password CHECK (length(password)>6 AND length(password)<=25)
+);
+
+
+--INSERT INTO Employee_login VALUES (seq_emp_id.nextval, 'rahul.audi', 'rahul0123');
+--INSERT INTO Employee_login VALUES (seq_emp_id.nextval, 'girich.freaky', 'girish0123');
+--INSERT INTO Employee_login VALUES (seq_emp_id.nextval, 'praveen.k', 'praveen0123');
+
+
+CREATE TABLE Mapping(
+outlet_name VARCHAR(30) NOT NULL,
+sub_location1 VARCHAR(30) NOT NULL,
+sub_location2 VARCHAR(30) NOT NULL,
+sub_location3 VARCHAR(30) NOT NULL,
+sub_location4 VARCHAR(30) NOT NULL,
+sub_location5 VARCHAR(30) NOT NULL,
+CONSTRAINT pk_outlet_name PRIMARY KEY (outlet_name),
+CONSTRAINT chk_sub_location1 CHECK (length(sub_location1)<=30),
+CONSTRAINT chk_sub_location2 CHECK (length(sub_location2)<=30),
+CONSTRAINT chk_sub_location3 CHECK (length(sub_location3)<=30),
+CONSTRAINT chk_sub_location4 CHECK (length(sub_location4)<=30),
+CONSTRAINT chk_sub_location5 CHECK (length(sub_location5)<=30)
+);
+
+
+
+
+-- SELECT TO_CHAR(CurrentDate,'MM/DD/YYYY HH:MM:SS AM') from Test1;
+-- min=totalAmountRs[0];
+
+
+
+
+
+*** The users are required to fill the information without any spaces

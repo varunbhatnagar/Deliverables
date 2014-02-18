@@ -1,0 +1,86 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<script type="text/javascript" src="spinmenu.js"></script>
+<style type="text/css">
+<!--
+.style1 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+	font-size: 36px;
+	color: #FF0033;
+}s
+.style1 {font-family: Georgia, "Times New Roman", Times, serif; font-style: italic; font-size: 24px; color: #FF0033; }
+.style2 {font-family: Georgia, "Times New Roman", Times, serif; font-style: italic; font-size: 18px; color: #9900CC; }
+.style3 {color: #000000; font-weight: bold; }
+-->
+</style>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" /></head>
+<body background="images/bg_main01.jpg">
+	<script type="text/javascript">
+		rahul.isVertical =0; //if it's vertical or horizontal [0|1]
+		rahul.x = 500; // x offset from point of insertion on page
+		rahul.y = 200; // y offset from point of insertion on page
+		rahul.w = 150; // item's width
+		rahul.h = 30; // height
+		rahul.r = 150; // menu's radius
+		rahul.v = 20; // velocity
+		rahul.s = 8; // scale in space (for 3D effect)
+		rahul.color = '#FFFFFF'; // normal text color
+		rahul.colorover = '#ffffff'; // mouseover text color
+		rahul.backgroundcolor = '#DC143C'; // normal background color
+		rahul.backgroundcolorover = '#EE6363'; // mouseover background color
+		rahul.bordercolor = '#000000'; //border color
+		rahul.fontsize = 15; // font size
+		rahul.fontfamily = 'Arial'; //font family
+		if (document.getElementById){
+			document.write('<div id="orderanchor" style="height:'+eval(rahul.h+20)+'"></div>')
+			rahul.anchor=document.getElementById('orderanchor')
+			rahul.ordermenu();
+			rahul.x+=getposOffset(rahul.anchor, "left") //relatively position it
+			rahul.y+=getposOffset(rahul.anchor, "top")  //relatively position it
+			//menuitem:   rahul.ordermenuitem(text, link, target)
+			rahul.ordermenuitem("HOME","index.html");
+			rahul.ordermenuitem("MENU","Menu.jsp");
+			rahul.ordermenuitem("REGISTER","Register.html");
+			rahul.ordermenuitem("ABOUT US","AboutUS.html");
+			rahul.ordermenuitem("LOGIN","Login.html");
+			rahul.ordermenuitem("LOCATION","Location.html");
+			rahul.ordermenuclose();
+		}
+	</script>
+	<table width="853" height="912" border="1" align="center"  bordercolor="#003333" >
+ 		<tr>
+    		<td width="843" height="163"><img src="images/welcome.jpg" width="843" height="159" /></td>
+  		</tr>
+  		<tr><td height="82"  ></td>
+  		</tr>
+  		<tr>
+  			<tr>
+  			</tr>
+  		<tr>
+    		<td height="655"><table width="842" height="646" border="1"  bordercolor="#003333" >
+      	<tr>
+        	<td width="130" height="640" bgcolor="#FFCC99"><img src="images/Copy of coc-pizza-photo_final.jpg" width="133" height="654" /></td>
+        	<td width="560" background="" bgcolor="#FFCC66"><p align="center" class="style1">For any queries contact us at:</p>
+		          <p align="center" class="style2">Amit saxena</p>
+		          <p align="center" class="style3">mobile no: 08105834502 </p>
+		          <p align="center" class="style3">email-id: sx.amit@gmail.com   </p>
+		          <p align="center" class="style2">Lakhaa </p>
+		          <p align="center" class="style3">mobile no: 09019065502</p>
+		          <p align="center" class="style3">email-id: leks2608@gmail.com</p>
+		          <p align="center" class="style2">Rahul Jain</p>
+		          <p align="center" class="style3">mobile no: 08088808046</p>
+		          <p align="center" class="style3">email-id:rahul.audi@gmail.com</p>
+		          <p align="center" class="style2">Praveen kumar K</p>
+		          <p align="center" class="style3">mobile no: 9164302997 </p>
+		          <p align="center" class="style3">email-id:praveen.cs053@gmail.com</p>
+		          <p align="center" class="style1">&nbsp;</p>          </td>
+        	<td width="130" bgcolor="#FFCC99"><img src="images/coc-pizza-photo_final.jpg" width="133" height="655" align="top" /></td>
+      	</tr>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

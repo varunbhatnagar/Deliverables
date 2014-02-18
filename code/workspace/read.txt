@@ -1,0 +1,3 @@
+Com Folder contains FINAL design using JSP HTML JAVASCRIPT
+PizzaOnlineSystem Folder contains Swing design with some functionalities
+Query Folder contains all Queries for table creation and data also.  

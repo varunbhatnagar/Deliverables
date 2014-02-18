@@ -1,0 +1,87 @@
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<script type="text/javascript" src="spinmenu.js"></script>
+<style type="text/css">
+<!--
+.style3 {color: #FFCC66}
+-->
+</style>
+</head>
+<body background="images/bg_main01.jpg">
+<span class="style3"></span>
+<script type="text/javascript">
+rahul.isVertical =0; //if it's vertical or horizontal [0|1]
+rahul.x = 500; // x offset from point of insertion on page
+rahul.y = 200; // y offset from point of insertion on page
+rahul.w = 150; // item's width
+rahul.h = 30; // height
+rahul.r = 150; // menu's radius
+rahul.v = 20; // velocity
+rahul.s = 8; // scale in space (for 3D effect)
+rahul.color = '#FFFFFF'; // normal text color
+rahul.colorover = '#ffffff'; // mouseover text color
+rahul.backgroundcolor = '#DC143C'; // normal background color
+rahul.backgroundcolorover = '#EE6363'; // mouseover background color
+rahul.bordercolor = '#000000'; //border color
+rahul.fontsize = 15; // font size
+rahul.fontfamily = 'Arial'; //font family
+if (document.getElementById){
+document.write('<div id="orderanchor" style="height:'+eval(rahul.h+20)+'"></div>')
+rahul.anchor=document.getElementById('orderanchor')
+rahul.ordermenu();
+rahul.x+=getposOffset(rahul.anchor, "left") //relatively position it
+rahul.y+=getposOffset(rahul.anchor, "top")  //relatively position it
+
+//menuitem: rahul.ordermenuitem(text, link, target)
+rahul.ordermenuitem("HOME","index.html");
+rahul.ordermenuitem("MENU","Menu.jsp");
+rahul.ordermenuitem("REGISTER","Register.html");
+rahul.ordermenuitem("ABOUT US","AboutUS.html");
+rahul.ordermenuitem("LOGIN","Login.html");
+rahul.ordermenuitem("LOCATION","Location.html");
+rahul.ordermenuitem("CONTACT US","ContactUS.html");
+rahul.ordermenuitem("FEEDBACK","FeedBack.html");
+rahul.ordermenuclose();
+}
+</script>
+
+<table width="853" height="1126" border="1" align="center"  bordercolor="#003333" >
+ <tr>
+    <td width="843" height="163"><img src="images/welcome.jpg" width="843" height="159" /></td>
+  </tr>
+  <tr><td height="82"  ></td>
+  </tr>
+  <tr>
+  <tr>
+
+  </tr>
+  <tr>
+    <td height="869"><table width="842" height="856" border="1"  bordercolor="#003333" >
+      <tr>
+        <td width="407" height="850"><img src="images/home2.JPG" width="405" height="856" /></td>
+        <td width="419"><table width="406" height="849" border="1"  bordercolor="#003333" >
+          <tr>
+            <td width="196" height="194"><a href="Menu.jsp"><img src="images/menu.png" width="207" height="189" /></a></td>
+            <td width="194"><img src="images/cheesybites_img.jpg" width="180" height="191" align="middle"/></td>
+          </tr>
+          <tr>
+            <td height="206"><img src="images/specChesseloversLg.jpg" width="208" height="200" /></td>
+            <td><a href="Login.html"><img src="images/order.jpg" width="181" height="201" /></a></td>
+          </tr>
+          <tr>
+            <td height="216"><a href="Location.html"><img src="images/locator.gif" width="208" height="212" /></a></td>
+            <td><img src="images/pizza_3.jpg" width="180" height="214" /></td>
+          </tr>
+          <tr>
+            <td height="220"><img src="images/MeatLoversLg.jpg" width="211" height="217" /></td>
+            <td><a href="whatsHot.html"><img src="images/whats_hot_not.jpg" width="192" height="201" /></a></td>
+          </tr>
+        </table></td>
+      </tr>
+    </table></td>
+  </tr>
+</table>
+</body>
+</html>

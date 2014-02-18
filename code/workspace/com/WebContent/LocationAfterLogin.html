@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+
+<script type="text/javascript" src="spinmenu.js"></script>
+<style type="text/css">
+<!--
+.style3 {
+	font-family: Georgia, "Times New Roman", Times, serif;
+	font-style: italic;
+	font-weight: bold;
+}
+-->
+</style>
+</head>
+
+
+<body background="images/bg_main01.jpg">
+<form  action="RahulRegister.jsp" method=post  name="Registationform1" onsubmit="return validatePwd()"> 
+<script type="text/javascript">
+
+
+
+rahul.isVertical =0; //if it's vertical or horizontal [0|1]
+rahul.x = 500; // x offset from point of insertion on page
+rahul.y = 200; // y offset from point of insertion on page
+rahul.w = 150; // item's width
+rahul.h = 30; // height
+rahul.r = 150; // menu's radius
+rahul.v = 20; // velocity
+rahul.s = 8; // scale in space (for 3D effect)
+rahul.color = '#FFFFFF'; // normal text color
+rahul.colorover = '#ffffff'; // mouseover text color
+rahul.backgroundcolor = '#DC143C'; // normal background color
+rahul.backgroundcolorover = '#EE6363'; // mouseover background color
+rahul.bordercolor = '#000000'; //border color
+rahul.fontsize = 15; // font size
+rahul.fontfamily = 'Arial'; //font family
+if (document.getElementById){
+document.write('<div id="orderanchor" style="height:'+eval(rahul.h+20)+'"></div>')
+rahul.anchor=document.getElementById('orderanchor')
+rahul.ordermenu();
+rahul.x+=getposOffset(rahul.anchor, "left") //relatively position it
+rahul.y+=getposOffset(rahul.anchor, "top")  //relatively position it
+
+//menuitem:   rahul.ordermenuitem(text, link, target)
+rahul.ordermenuitem("HOME","HomeAfterLogin.jsp");
+rahul.ordermenuitem("MENU","Menu.jsp");
+rahul.ordermenuitem("ORDER","Order.jsp");
+rahul.ordermenuitem("ABOUT US","AboutUsAfterLogin.html");
+rahul.ordermenuitem("LOGOUT","Logout.jsp");
+rahul.ordermenuitem("LOCATION","");
+rahul.ordermenuclose();
+}
+</script>
+
+<table width="853" height="896" border="1" align="center" >
+
+    <tr><td height="163" colspan="2"><img src="images/welcome.jpg" width="843" height="159" /></td>
+  </tr>
+  <tr><td height="82" colspan="2"  ></td>
+  </tr>
+  
+  <tr>
+    <td width="502" height="557" ><img src="images/india21.bmp" alt="indiamap" align="texttop" usemap="#locationmap" />
+      <map id="locationmap" name="locationmap">
+        <area shape="circle" coords="177,490,10" alt="BANGALORE" href="http://localhost:8088/com/Bangalore.jsp" target="display" />
+        <area shape="circle" coords="096,380,10" alt="MUMBAI" href="http://localhost:8088/com/Mumbai.jsp" target="display"/>
+        <area shape="circle" coords="175,190,10" alt="DELHI" href="http://localhost:8088/com/Delhi.jsp" target="display"/>
+        <area shape="circle" coords="364,306,10" alt="KOLKATA" href="http://localhost:8088/com/Kolkata.jsp" target="display"/>
+        <area shape="circle" coords="220,503,10" alt="CHENNAI" href="http://localhost:8088/com/Chennai.jsp" target="display"/>
+        </map></td>
+    <td width="335" bordercolor="#000000" ><iframe src ="" width="100%" height="600" scrolling="auto" name="display"></td>
+  </tr>
+</table>
+</body>
+</html>

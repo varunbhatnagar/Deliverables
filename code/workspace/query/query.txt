@@ -1,0 +1,269 @@
+insert into Location values(seq_Location_id.nextval,'Vasant Vihar','41,Basant Lok,',
+'vasant vihar','New Delhi','New Delhi','110057','011-3988-3988/ 26153756/58');
+
+insert into Location values(seq_Location_id.nextval,'GK-1 ','M-17, M Block Market,',
+'greater kailash 1','New Delhi','New Delhi','110048','011-3988-3988/ 29230030, 29230659 ');
+
+insert into Location values(seq_Location_id.nextval,'Green Park','S-32, Main Mkt',
+'green park','New Delhi','New Delhi','110016','011-3988-3988/ 26533985 / 89 ');
+
+insert into Location values(seq_Location_id.nextval,'Karol Bagh','6/85 Padam Singh Road',
+'karol bagh','New Delhi','New Delhi','110052','011-3988-3988/ 28759420 , 28759510 ');
+
+
+insert into Location values(seq_Location_id.nextval,'CP Janpath','Shop No.58, Janpath',
+'canaught place','New Delhi','New Delhi','110232','011-3988-3988/ 41500861 , 41503030 ');
+
+
+
+Bombay-->
+
+
+insert into Location values(seq_Location_id.nextval,'Cinewonder Thane','Ghodbunder Raod',
+'thane','Mumbai','Maharashtra','400081','3988-3988/ 25895566');
+
+
+insert into Location values(seq_Location_id.nextval,'Powaii','Hiranandini Business Park',
+'powai','Mumbai','Maharashtra','408081','3988-3988/ 66772597');
+
+insert into Location values(seq_Location_id.nextval,'Lokhandwala','Grenville Apartments',
+'lokhandwala','Mumbai','Maharashtra','488081','3988-3988/ 66931166');
+
+
+insert into Location values(seq_Location_id.nextval,'Borivali','Sumer Nagar Society',
+'borivili','Mumbai','Maharashtra','488981','33988-3988/ 28635050');
+
+
+insert into Location values(seq_Location_id.nextval,'Andheri East','Shop no 1,Tandon Mall',
+'andheri east','Mumbai','Maharashtra','498981','3988-3988/ 28303596');
+
+
+kolkata->>
+
+
+insert into Location values(seq_Location_id.nextval,'City Centre Mall 2','City Centre Mall',
+'rajarhat','Kolkata','West Bengal','700001','033- 25266059');
+
+
+insert into Location values(seq_Location_id.nextval,'Kolkata Comac Street','22',
+'camac street','Kolkata','West Bengal','703001','33-22814343/28/30');
+
+
+insert into Location values(seq_Location_id.nextval,'Kolkata Salt Lake','Salt Lake City Centre',
+'sector 1','Kolkata','West Bengal','702001','23580984-88');
+
+insert into Location values(seq_Location_id.nextval,'Kolkata Forum','5th Floor,Forum Mall',
+'Elgin Road','Kolkata','West Bengal','702011','033-22814327');
+
+
+
+bangalore-->
+
+
+
+QUERIES FOR LOCATION
+
+BANGALORE
+
+
+insert into Location values(seq_Location_id.nextval,'Koramangala','# 478, 80 feet road,',
+'Koramangala','Bangalore','Karnataka','560034','3988-3988/ 25533999');
+
+insert into Location values(seq_Location_id.nextval,'Vijay Nagar','121st main Road',
+'vijaynagar','Bangalore','Karnataka','560040','3988-3988/ 23146498');
+
+insert into Location values(seq_Location_id.nextval,'Airport Road ','# 124 Surya Chambers',
+'airport road','Bangalore','Karnataka','560008','3988-3988/ 25223999');
+
+insert into Location values(seq_Location_id.nextval,'Jayanagar ','Suraj Tower,27th Cross',
+'jayanagar','Bangalore','Karnataka','560011','3988-3988/ 26532999 ');
+
+insert into Location values(seq_Location_id.nextval,'Banashankari ','# 2469,21st Cross',
+'banashankari','Bangalore','Karnataka','560050','3988-3988/ 26710997  ');
+
+insert into Location values(seq_Location_id.nextval,'Yashvanthpur ','32, Anjan Complex',
+'yashvanthpur','Bangalore','Karnataka','560022','3988-3988/ 23312752  ');
+
+insert into Location values(seq_Location_id.nextval,'Whitfield ','G 10 D,Tech Park Mall',
+'whitefield','Bangalore','Karnataka','560066','3988-3988/ 28416299  ');
+
+insert into Location values(seq_Location_id.nextval,'malleshwaram','#3, New BEL Road',
+'malleshwaram','Bangalore','Karnataka','560003','3988-3988/ 23519701   ');
+
+
+CHENNAI-->
+
+
+
+insert into Location values(seq_Location_id.nextval,'Adyar','3rd Main Road',
+'adyar','Chennai','Tamilnadu','600020','3988-3988/ 4205 7110/123 ');
+
+insert into Location values(seq_Location_id.nextval,'Annanagar','#C-43,12th,Main Road',
+'annanagar','Chennai','Tamilnadu','600040','3988-3988/ 42057107  ');
+
+insert into Location values(seq_Location_id.nextval,'Nungambakkam ','#316,GeeGee Emerald',
+'nungambakkam','Chennai','Tamilnadu','600034','3988-3988/ 42057108   ');
+
+insert into Location values(seq_Location_id.nextval,'R.S. Puram','Silver Mount Building',
+'rspuram','Chennai','Tamilnadu','600066','3988-3988/ 42089234 / 235');
+
+insert into Location values(seq_Location_id.nextval,'T.Nagar','Joyland Complex',
+'tnagar','Chennai','Tamilnadu','600017','3988-3988/ 42089346 / 347');
+
+
+
+//Capsicum
+
+insert into Pizza_item values(seq_pizza_code.nextval,'Veneziana','VEG','large','capsicum',200,'images/capsicum_veneziana');
+insert into Pizza_item values(seq_pizza_code.nextval,'Veneziana','VEG','medium','capsicum',150,'images/capsicum_veneziana');
+insert into Pizza_item values(seq_pizza_code.nextval,'Veneziana','VEG','small','capsicum',100,'images/capsicum_veneziana');
+
+//Garlic
+insert into Pizza_item values(seq_pizza_code.nextval,'pesto','VEG','large','garlic',200,'images/garlic_pesto');
+insert into Pizza_item values(seq_pizza_code.nextval,'pesto','VEG','medium','garlic',150,'images/garlic_pesto');
+insert into Pizza_item values(seq_pizza_code.nextval,'pesto','VEG','small','garlic',100,'images/garlic_pesto');
+
+//cheese
+insert into Pizza_item values(seq_pizza_code.nextval,'marghrita','VEG','large','cheese',200,'images/cheese_marghrita');
+insert into Pizza_item values(seq_pizza_code.nextval,'marghrita','VEG','medium','cheese',150,'images/cheese_marghrita');
+insert into Pizza_item values(seq_pizza_code.nextval,'marghrita','VEG','small','cheese',100,'images/cheese_marghrita');
+
+//egg
+insert into Pizza_item values(seq_pizza_code.nextval,'fiorentina','NONVEG','large','egg',300,'images/egg_fiorentina');
+insert into Pizza_item values(seq_pizza_code.nextval,'fiorentina','NONVEG','medium','egg',250,'images/egg_fiorentina');
+insert into Pizza_item values(seq_pizza_code.nextval,'fiorentina','NONVEG','small','egg',200,'images/egg_fiorentina');
+
+//Mushroom
+insert into Pizza_item values(seq_pizza_code.nextval,'rustica','NONVEG','large','mushroom',300,'images/mushroom_rustica');
+insert into Pizza_item values(seq_pizza_code.nextval,'rustica','NONVEG','medium','mushroom',250,'images/mushroom_rustica');
+insert into Pizza_item values(seq_pizza_code.nextval,'rustica','NONVEG','small','mushroom',200,'images/mushroom_rustica');
+
+
+
+
+
+
+
+
+
+
+
+--INSERT INTO Customer VALUES( seq_customer_id.nextval, 'amit', 'Regular User', 
+'6, Shiv Sagar Awas', 'Model Town', '9891847009', 'bareilly', 'up', '243005');
+
+
+INSERT INTO Customer VALUES( seq_customer_id.nextval, 'rahul', 'Corporate User', 
+'241, Vaishali Nagar', 'Queens Road', '8088808046', 'jaipur', 'rajasthan', '302021');
+
+insert into Customer_login values ('sx.amit', 'amit0123', 4, 1); 
+
+insert into Customer_login values ('rahul.audi', 'rahul0123', 30, 2); 
+
+SELECT * FROM Customer_login WHERE LOGIN_ID='rahul.audi';
+SELECT * FROM Customer_login WHERE LOGIN_ID='sx.amit';
+
+insert into Customer values(seq_customer_id.nextval,?,?,?,?,?,?,?,?)
+
+insert into Location values(seq_Location_id.nextval,'kormangala','45-1stblock','6th main','Bangalore','Karnataka','560033','9066610210');
+
+INSERT INTO  Pizza_order VALUES(seq_trans_id.nextval,36,'rahul',1,12,250.1f,SYSDATE,'cash');
+
+
+for Sales->>>
+
+Insert INTO sales VALUES('Vasant Vihar',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('GK-1 ',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Green Park',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Karol Bagh',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('CP Janpath',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+
+
+
+Insert INTO sales VALUES('Cinewonder Thane',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Powaii',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Lokhandwala',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Borivali',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Andheri East',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+
+Insert INTO sales VALUES('City Centre Mall 2',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Kolkata Comac Street',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Kolkata Salt Lake',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Kolkata Forum',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+
+
+
+Insert INTO sales VALUES('Koramangala',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Vijay Nagar',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Airport Road ',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Jayanagar ',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Banashankari ',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Yashvanthpur ',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Whitfield ',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('malleshwaram',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+
+
+Insert INTO sales VALUES('Adyar',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Annanagar',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('Nungambakkam ',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('R.S. Puram',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+Insert INTO sales VALUES('T.Nagar',0,0,0,0,0,0,0,0,0,0,0,0,0,0,0);
+
+
+
+
+
+
+//BANGALORE
+
+insert into Mapping values('Koramangala','HSR Layout','Madiwala','Kormangala 6th block','Wilson Garden','Shantinagar');
+insert into Mapping values('Vijay Nagar',''Rajajinagar','BEML','Gopalpuram','Chamrajpet','Mysore Road');
+insert into Mapping values('Airport Road','Indiranagar','Sarjapur Road','Ulsoor','Banaswadi','Austin town');
+insert into Mapping values('Jayanagar','J.P Nagar','Padmanam nagar','R.V Road','South End Circle','Jayanagar 7th Block');
+insert into Mapping values('Banashankari','Hanumanthnagar','Basavanagudi','Hoskerihalli','Rajajaeshwari nagar',Kengeri');
+insert into Mapping values('Yashvanthpur','Cox town','Richmond town','Peenya','Yelahanka','Tumkur Road');
+insert into Mapping values('Whitefield','Domlur','HAL Road','ITPL','Kadugodi','Marathalli');
+insert into Mapping values('malleshwaram','Devasandra','Vidyaranyapuram','Mekri circle','R.T nagar','Vayalikavali');
+
+//CHENNAI
+
+insert into Mapping values('adyar','KK nagar','Koturupuram','Mylapore','Saidapet','Tambaram');
+insert into Mapping values('annanagar','Ambattur','Kilpauk','Porur','Vadapalani','Ayanavaram');
+insert into Mapping values('nungambakkam','Egmore','George Town','Triplicane','Royapettah','Velachery');
+insert into Mapping values('rspuram','Pozhal','Purasavakkam','Tondiarpet','Dwarakanagar','Kanchipuram');
+insert into Mapping values('tnagar','Benson Town','Fraser town','Chickpet','Hennur','Laggeri');
+
+//DELHI
+
+insert into Mapping values('Vasant Vihar','Chanakyapuri','Greater Kailash','Lajpat Nagar','Mehrauli','Nehru Place');
+insert into Mapping values('GK-1 ','Safdarjung','South Extension','Vasant Kunj','Mayur Vihar','Patparganj');
+insert into Mapping values('Green Park','Preet Vihar','Shahdara','Chandni Chowk','Pragati Maidan','Dwarka');
+insert into Mapping values('Karol Bagh','Janakpuri','Purasavakkam','Tondiarpet','Dwarakanagar','Kanchipuram');
+insert into Mapping values('CP Janpath','Punjabi Bagh','Rohini','Faridabad','Bahadurgarh','Ghaziabad');
+
+
+
+//KOLKATA
+
+insert into Mapping values('City Centre Mall 2',KK nagar,'Dakshineswar','Dum Dum','Lake Town','Maniktala');
+insert into Mapping values('Kolkata Comac Street','Nager Bazar','Shobha Bazar','Shyam Bazar','Tala','Alipur');
+insert into Mapping values('Kolkata Salt Lake','Baguiati','Jadavpur','Jodhpur Park','Kalighat','Kasba');
+insert into Mapping values('Kolkata Forum','Sealdah','BBD Bagh','Entali','Esplanade','Khidirpur');
+
+
+//MUMBAI
+
+insert into Mapping values('Cinewonder Thane','Kalamboli','Mysore Colony ','Shastri Nagar','Dev Nagar','Nerul');
+insert into Mapping values('Powaii','Tardeo','Worli','Chembur','Ghatkopar','Kurla');
+insert into Mapping values('Lokhandwala','Dadar','Fort Area','Kalbadevi','Nariman Point','Anushakti Nagar');
+insert into Mapping values('Borivali','Kalyan','Navi Mumbai','Raigarh','Thane','Parel');
+insert into Mapping values('Andheri East','Bandra','Dahisar','Goregaon','Juhu','Malad');
+
+
+
+
+
+
+
+
+
+

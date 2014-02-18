@@ -1,0 +1,184 @@
+Delhi->>>>
+Vasant Vihar 
+41, Basant Lok,
+Vasant Vihar, New Delhi
+New Delhi
+011-3988-3988/ 26153756/58 
+
+
+ Janak Puri,New Multan Nagar, 	Civil Lines, Distt Court, L.R. Market,
+
+GK-1 
+M-17, M Block Market,
+Greater Kailash 1,
+New Delhi
+011-3988-3988/ 29230030, 29230659 
+
+Kailash Colony, Masjid moth, Mandi,Gulmohar Park, New Delhi South, Sadiq Nagar
+
+Green Park 
+S-32, Main Mkt,
+Green Park,
+New Delhi
+011-3988-3988/ 26533985 / 89 
+ Green Park Market, Hauz Khas, IIT Hauz Khas, Technology Bhawan
+
+
+
+Karol Bagh 
+6/85 Padam Singh Road,
+Karol Bagh,
+New Delhi
+011-3988-3988/ 28759420 , 28759510 
+
+Anand Parbat PO, Bank Street, Guru Gobind Singh Marg, Master Prithvi Nath Marg, Sat Nagar
+
+New Friends Colony 
+Shop no 19, 20, Grandlay Complex,
+New Friends Colony,
+New Delhi
+011-3988-3988/ 26921735, 26923797 
+
+ Jamia Nagar, New Friends Colony, Sukhdev Vihar, Zakir Nagar, Okhla Canal Edbo
+
+Saket 
+12, Community Centre,
+Saket,
+New Delhi
+011-3988-3988/ 41664268 / 69 
+
+Chirag Delhi, Malviya Nagar, Panchsheel Enclave, Pushp Vihar, Sarvodya Enclave,  
+
+
+Rajouri Garden,TDI Mall 
+G - 24 & 25, TDI Mall,
+Shivaji Place, Near Rajouri Mkt
+New Delhi
+/ 25440080 
+
+J-6 Rajouri Garden, Janta Market, Rajouri Garden, Subhash Nagar, Subhash Nagar West
+
+
+
+CP Janpath 
+Shop No.58, Janpath,
+Canaught Place
+New Delhi
+011-3988-3988/ 41500861 , 41503030 
+
+Sansad Marg HPO,Parliament House, Patiala House, Pragati Maidan, Rail Bhawan,
+
+
+
+
+Bombay--->
+
+
+Cinewonder Thane 
+Ghodbunder Raod,
+Kapurbawadi, Thane (W),
+Mumbai
+3988-3988/ 25895566 
+
+
+
+Powaii 
+Sentinel, Hiranandini Business Park,
+Powai,
+Mumbai
+3988-3988/ 66772597 
+
+
+
+Lokhandwala 
+Shop No. 18, Grenville Apartments, Opposite Samarth Vaibhav Nagar,
+Lokhandwala, Andheri West,
+Mumbai
+3988-3988/ 66931166 
+
+
+
+Borivali 
+Ground Floor,Sumer Nagar Co-operative Society
+Off S.V. Road, Borivili West,
+Mumbai
+3988-3988/ 28635050 
+
+
+
+Andheri East 
+Ground Floor,Shop no 1,Tandon Mall,
+Andheri Kurla Road, Andheri(East),
+Mumbai
+3988-3988/ 28303596 
+
+
+
+Panchpakadi, Thane 
+Panchpakadi,
+Near Hari Niwas circle, Thane(W)
+Mumbai
+/ 25416363 
+
+
+
+
+Kandivali Profit Centre 
+Shop# G3, F2, Profit Centre, 120 Feet Road, Borsapada,
+Mahaveer Nagar, Kandivli West,
+Mumbai
+3988-3988/ 28674445 
+
+
+
+
+Mulund 
+3rd Floor, Runwal Arcade, New India Industry,
+LBS Road, Mulund West
+Mumbai
+3988-3988/ 67550503 
+Mulund West,Mulund East,Mulund Town,
+
+
+
+
+
+kolkata->>>>>>>>
+
+City Centre Mall 2 
+GF Block C, City Centre Mall 2
+New Town, Rajarhat
+Kolkata
+033- 25266059 
+
+Kolkata Comac Street 
+22 Camac Street,
+Kolkata
+Kolkata
+/ 33-22814343/28/30 
+
+
+Kolkata Salt Lake 
+DC-1, Salt Lake City Centre,
+Sector 1, Kolkata
+Kolkata
+/ 23580984-88 
+
+
+Kolkata Forum 
+5th Floor, Forum Mall,
+10/3 Elgin Road, Kolkatta
+Kolkata
+/ 033-22814327 
+
+
+
+
+
+Queries->>>>
+
+
+
+
+insert into Location values(seq_Location_id.nextval,'kormangala','45-1stblock',
+'6th main','Bangalore','Karnataka','560033','9066610210');

@@ -1,0 +1,263 @@
+<!-- 
+ * @author LAKHAA.J
+ *
+ * @version 1.0
+ * This PaymentForm is to get the card detail information from the user 
+ * 
+ **-->
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<title>Payment</title>
+
+
+
+	<link rel="stylesheet" type="text/css"
+		href="plusimageviewer.css" />
+		<style>
+<!--
+#verticaltext {
+writing-mode: tb-rl;
+filter: flipv fliph;
+background-color:#DC143C;
+
+}
+.style1 {font-family: "Comic Sans MS"}
+.style2 {
+	color: #000000;
+	font-weight: bold;
+}
+-->
+        </style>
+<!--Java Scripts for PaymentForm.html-->
+	
+	<script type="text/javascript" src="spinmenu.js"></script>
+	
+<script type="text/javascript" src="payscript.js">
+</script>
+<script type="text/javascript" >
+/**
+* Forwards the form to PaymentValidte.jsp
+* @param
+* @return
+**/
+function validateCardDetail(){
+	var flag=1;
+	ctype = document.getElementById('payCardTypeList').value;
+	cnum1 = document.getElementById('payCardNumText1').value;
+	cnum2 = document.getElementById('payCardNumText2').value;
+	cnum3 = document.getElementById('payCardNumText3').value;
+	cnum4 = document.getElementById('payCardNumText4').value;
+	cname = document.getElementById('payCardNameText').value;
+	cbname = document.getElementById('payBankNameList').value;
+	ccvv =  document.getElementById('payCardCvvText').value;
+	cexpmonth = document.getElementById('payExpiryMonthList').value;
+	cexpyr = document.getElementById('payExpiryDateList').value;
+	//Checks for client side validation
+	if((ctype=="Select Card Type") || (cnum1=="") || (cnum2=="") || (cnum3=="") 
+		|| (cnum4=="") || (cname=="") || (cbname=="Select Bank Name") 
+		|| (ccvv=="") || (cexpmonth=="Month") || (cexpyr=="Year")){
+		alert("Please enter all details");
+		flag=0;
+	}
+	
+	if((cnum1!="") || (cnum2!="") || (cnum3!="") ||(cnum4!="")){
+		if (isNaN(cnum1) || isNaN(cnum2) || isNaN(cnum3) || isNaN(cnum4) ) {
+			alert("Card number should contain only numbers");
+			flag = 0;
+		}
+	}
+
+	
+	if(isNaN(ccvv)&& ccvv!=""){
+		alert("Cvv should contain only numbers");
+		flag = 0;
+	}
+
+	
+	clen1=document.getElementById('payCardNumText1').value.length;
+	clen2=document.paymentForm.payCardNumText2.length;
+	clen3=document.paymentForm.payCardNumText3.length;
+	clen4=document.paymentForm.payCardNumText4.length;
+	if((cnum1!="") || (cnum2!="") || (cnum3!="") ||(cnum4!="")){
+		if ((clen1<4) || (clen2<4) || (clen3<4) || (clen4<4)) {
+			alert("Please enter all digits of card number");
+			flag = 0;
+		}
+	}
+
+	
+	var testname=/[a-zA-Z]/;
+	if(!testname.test(cname) && cname!="")
+	{
+		alert("Card holder name should contain only alphabets");	
+		flag=0;
+	}
+
+	
+	if(flag==1){
+			
+			document.paymentForm.action="PaymentValidate.jsp";
+	}
+	}
+	
+</script>
+</head>
+<!--  Java script for the spin menu on the web page -->
+<body background="C:/Documents and Settings/Administrator/workspace1/com/images/bg_main01.jpg" onload="history.go(+1)" >
+<script type="text/javascript">
+rahul.isVertical =0; //if it's vertical or horizontal [0|1]
+rahul.x = 500; // x offset from point of insertion on page
+rahul.y = 250; // y offset from point of insertion on page
+rahul.w = 150; // item's width
+rahul.h = 30; // height
+rahul.r = 150; // menu's radius
+rahul.v = 20; // velocity
+rahul.s = 8; // scale in space (for 3D effect)
+rahul.color = '#FFFFFF'; // normal text color
+rahul.colorover = '#ffffff'; // mouseover text color
+rahul.backgroundcolor = '#DC143C'; // normal background color
+rahul.backgroundcolorover = '#EE6363'; // mouseover background color
+rahul.bordercolor = '#000000'; //border color
+rahul.fontsize = 15; // font size
+rahul.fontfamily = 'Arial'; //font family
+if (document.getElementById){
+document.write('<div id="orderanchor" style="height:'+eval(rahul.h+20)+'"></div>')
+rahul.anchor=document.getElementById('orderanchor')
+rahul.ordermenu();
+rahul.x+=getposOffset(rahul.anchor, "left") //relatively position it
+rahul.y+=getposOffset(rahul.anchor, "top")  //relatively position it
+
+//menuitem: rahul.ordermenuitem(text, link, target)
+rahul.ordermenuitem("HOME","HomeAfterLogin.jsp");
+rahul.ordermenuitem("MENU","Menu.jsp");
+
+rahul.ordermenuitem("ABOUT US","AboutUSAfterLogin.html");
+rahul.ordermenuitem("LOGOUT","LogOut.jsp");
+rahul.ordermenuitem("LOCATION","LocationAfterLogin.html");
+rahul.ordermenuclose();
+}
+</script>
+<!--End of Java Scripts for PaymentForm.html-->
+<form name="paymentForm" method="post">
+	<!-- Table that contains the fields to enter card details-->
+	<table width="853" height="1101" border="1" align="center" bordercolor="#003333" >
+	<tr>
+    	<td width="843" height="163"><img src="images/welcome.jpg" width="843" height="159" /></td>
+  	</tr>
+  	<tr><td height="93"  ></td>
+  	</tr>
+  	<tr>
+    <td height="835">
+	<table width="843" height="824" border="1">
+		 <tr bgcolor="#FFCC66">
+        	<td height="42" ><span class="style2">
+        	  <marquee behavior="alternate">
+        	  <span class="style1">        	  <a href=""></a></span>
+       	      </marquee>
+        	</span> Payment Form </td>
+      	</tr>
+		<tr>
+        <td height="774"><table width="837" height="770" border="0" background="images/specPepperoniLrg.jpg">
+        	<tr>
+            <td width="217" height="759">&nbsp;</td>
+            <td width="463"><table width="464" height="303" border="0" cellspacing="1" bgcolor="#FFCC66">
+			<tr>
+			<td colspan="2" align="center"><img src="image/image.JPG" alt="creditcard" /></td>
+			<tr>
+			<!-- Table row that contains the field to enter card type-->
+			<tr>
+				<td>Card Type*</td>
+				<td><select name="payCardTypeList" size="1">
+						<option value="Select Card Type" selected="selected">-Select Card Type-</option>
+						<option value="MasterCard">MasterCard</option>
+						<option value="Visa">Visa</option>
+					</select></td>
+			</tr>
+			<!-- Table row that contains the field to enter card number-->
+			<tr>
+				<td width="162">Card Number*</td>
+				<td width="289">
+					<input name="payCardNumText1" type="text" size="4" maxlength="4" value="" /> 
+					<input name="payCardNumText2" type="text" size="4" maxlength="4" />
+					<input name="payCardNumText3" type="text" size="4" maxlength="4" /> 
+					<input name="payCardNumText4" type="text" size="4" maxlength="4" />
+				</td>
+			</tr>
+			<!-- Table row that contains the field to enter card holder name-->
+			<tr>
+			<td>Name on Card*</td>
+			<td><input name="payCardNameText" type="text" size="25" maxlength="25" /></td>
+			</tr>
+			<!-- Table row that contains the field to enter cvv-->
+			<tr>
+			<td>CVV*</td>
+			<td><input name="payCardCvvText" type="password" size="3" maxlength="3" /></td>
+			</tr>
+			<!-- Table row that contains the field to enter bank name-->
+			<tr>
+			<td>Bank Name*</td>
+				<td><select name="payBankNameList" size="1">
+					<option value="Select Bank Name" selected="selected">-Select Bank Name-</option>
+					<option value="HDFC">HDFC</option>
+					<option value="ICICI">ICICI</option>
+					<option value="AXIS">AXIS</option>
+					<option value="CITI">CITI</option>
+					<option value="CITI">SBI</option>
+					<option value="American Express">American Express</option>
+			</select></td>
+			</tr>
+			<!-- Table row that contains the field to enter expiry date-->
+			<tr>
+			<td>Expiry Date*</td>
+				<td><select name="payExpiryMonthList" size="1">
+						<option value="Month" selected="selected">-Month-</option>
+						<option value="01">01</option>
+						<option value="02">02</option>
+						<option value="03">03</option>
+						<option value="04">04</option>
+						<option value="05">05</option>
+						<option value="06">06</option>
+						<option value="07">07</option>
+						<option value="08">08</option>
+						<option value="09">09</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+					</select> &nbsp; <select name="payExpiryDateList" size="1">
+						<option value="Year" selected="selected">-Year-</option>
+						<option value="10">10</option>
+						<option value="11">11</option>
+						<option value="12">12</option>
+						<option value="13">13</option>
+						<option value="14">14</option>
+						<option value="15">15</option>
+						<option value="16">16</option>
+						<option value="17">17</option>
+						<option value="18">18</option>
+						<option value="19">19</option>
+						<option value="20">20</option>
+					</select></td>
+			</tr>
+			<tr>
+			<td colspan="2" align="center">
+				<!-- Button to reset the fields-->
+				<input name="paymentButton" type="reset" value="Reset"  />  &nbsp; 
+				<!-- Button to call the javascript function to forward the page to PaymentValidate.jsp-->
+				<input name="paymentButton" type="submit" value="Submit" onClick="validateCardDetail();" />
+			</td>
+			</tr>
+		</table>&nbsp;</td>
+            <td width="143">&nbsp;</td>
+            </tr>
+        </table> <!-- End  of table-->
+        </td>
+	      </tr>
+		</table> <!-- End  of table-->
+		</td>
+  		</tr>
+		</table> <!-- End  of table-->
+	</form>
+</body>
+</html>
